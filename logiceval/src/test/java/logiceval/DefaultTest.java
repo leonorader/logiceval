@@ -7,5 +7,6 @@ public class DefaultTest {
 
         @Test
         public void dummyTest() {
-        	assertTrue(true);}
+        	assertTrue(true);
+        }
 }
