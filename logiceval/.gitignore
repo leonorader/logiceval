@@ -1,0 +1,12 @@
+/target/
+
+.metadata
+bin/
+tmp/
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+.project
+.classpath
