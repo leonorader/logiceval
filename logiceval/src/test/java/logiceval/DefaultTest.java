@@ -5,8 +5,8 @@ import org.junit.Test;
 
 public class DefaultTest {
 
-        @Test
-        public void dummyTest() {
-        	assertTrue(true);
-        }
+	@Test
+    public void dummyTest() {
+      	assertTrue(true);
+	}
 }
