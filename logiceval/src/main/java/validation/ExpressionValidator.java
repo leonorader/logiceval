@@ -1,19 +1,39 @@
 package validation;
 
-
 /**
+ * Class for validating expressions.
+ * <p>
  * Created by Grekton on 2017.04.26..
  */
 public class ExpressionValidator {
 
-    boolean isValid(String expr) {
+    /**
+     * Calls the symbolCheck and parenthesesCheck methods to check if the expression is valid.
+     *
+     * @param expr The expression that needs to be checked.
+     * @return Returns true if the expression is valid, false if the expression is invalid.
+     */
+    public boolean isValid(String expr) {
+        return symbolCheck(expr) && parenthesesCheck(expr);
+    }
 
-        //check for valid symbols
-        if(!expr.matches("[a-zA-Z0-1()^&!<>|\\s+-]+")) {
-            return false;
-        }
+    /**
+     * Checks for valid symbols.
+     *
+     * @param expr The expression that needs to be checked.
+     * @return True if all the symbols in the expression are valid, false if there are invalid symbols.
+     */
+    private boolean symbolCheck(String expr) {
+        return expr.matches("[a-zA-Z0-1()^&!<>|\\s+-]+");
+    }
 
-        //check for balanced parentheses
+    /**
+     * Checks for balanced parentheses.
+     *
+     * @param expr The expression that needs to be checked.
+     * @return True if the number of opening and closing brackets is the same, and false otherwise.
+     */
+    private boolean parenthesesCheck(String expr) {
         int open = 0;
         for (int i = 0; i < expr.length(); ++i) {
             char c = expr.charAt(i);
@@ -31,7 +51,6 @@ public class ExpressionValidator {
         }
 
         return open == 0;
-
     }
 
 }
