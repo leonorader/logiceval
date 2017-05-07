@@ -22,19 +22,25 @@ public class Logical {
     /**
      * Method for the <i>and</i> logical operator.
      *
-     * @return true if x and y are true and false otherwise.
+     * @return true if all of the arguments are true and false otherwise.
      */
-    public static boolean and(boolean x, boolean y) {
-        return (x && y);
+    public static boolean and(boolean... args) {
+        for (boolean x : args) {
+            if (!x) return false;
+        }
+        return true;
     }
 
     /**
      * Method for the <i>or</i> logical operator.
      *
-     * @return true if x and y are false and false otherwise.
+     * @return false if all of the arguments are false and true otherwise.
      */
-    public static boolean or(boolean x, boolean y) {
-        return !(!x && !y);
+    public static boolean or(boolean... args) {
+        for (boolean x : args) {
+            if(x) return true;
+        }
+        return false;
     }
 
     /**
