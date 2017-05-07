@@ -7,12 +7,15 @@ package representation;
  */
 public class Logical {
 
+    //private constructor to prevent instantiation of class
+    private Logical() {}
+
     /**
      * Method for the <i>negation</i> logical operator.
      *
      * @return false if x is true and true if x is false.
      */
-    public boolean not(boolean x) {
+    public static boolean not(boolean x) {
         return !x;
     }
 
@@ -21,9 +24,8 @@ public class Logical {
      *
      * @return true if x and y are true and false otherwise.
      */
-    public boolean and(boolean x, boolean y) {
-        if (x && y) return true;
-        return false;
+    public static boolean and(boolean x, boolean y) {
+        return (x && y);
     }
 
     /**
@@ -31,9 +33,8 @@ public class Logical {
      *
      * @return true if x and y are false and false otherwise.
      */
-    public boolean or(boolean x, boolean y) {
-        if (!x && !y) return false;
-        return true;
+    public static boolean or(boolean x, boolean y) {
+        return !(!x && !y);
     }
 
     /**
@@ -41,9 +42,8 @@ public class Logical {
      *
      * @return false if x is true and y is false, and true otherwise.
      */
-    public boolean implies(boolean x, boolean y) {
-        if (x && !y) return false;
-        return true;
+    public static boolean implies(boolean x, boolean y) {
+        return !(x && !y);
     }
 
 }
