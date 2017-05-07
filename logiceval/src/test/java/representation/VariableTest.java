@@ -3,6 +3,9 @@ package representation;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Test;
 
 public class VariableTest {
@@ -30,7 +33,15 @@ public class VariableTest {
 	public void variableIsVariableTest() {
 		Variable b = new Variable("B");
 		Expression variable = new Expression(b);
-		assertTrue(variable.isVariable());
+		assertTrue(variable.consistsOfAVariable());
+    }
+	
+	@Test
+	public void getVariablesOfVariableTest() {
+		Variable a = new Variable("A");
+		Set<Variable> set = a.getVariables();
+		Set<Variable> expectedSet = new HashSet<Variable>();
+		assertEquals(expectedSet, set);
     }
 
 }

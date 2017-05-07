@@ -1,5 +1,8 @@
 package representation;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Class representing a simple variable
  * extends Expression
@@ -19,7 +22,6 @@ public class Variable extends Expression {
 	 * @param String name
 	 */
 	public Variable(String name) {
-		super(null, null, null);
 		this.name = name.toUpperCase();
 	}
 
@@ -29,8 +31,12 @@ public class Variable extends Expression {
 	}
 	
 	@Override
+	public Set<Variable> getVariables() {
+		return new HashSet<Variable>();
+	}
+	
+	@Override
 	public String toString() {
 		return name;
 	}
-
 }
