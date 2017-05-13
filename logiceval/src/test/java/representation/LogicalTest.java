@@ -50,6 +50,23 @@ public class LogicalTest {
     }
 
     @Test
+    public void andTest5() {
+        boolean x = false;
+        boolean y = false;
+        boolean z = false;
+        assertFalse(Logical.and(x,y,z));
+    }
+
+    @Test
+    public void andTest6() {
+        boolean x = false;
+        boolean y = true;
+        boolean z = false;
+        boolean zz = true;
+        assertFalse(Logical.and(x,y,z,zz));
+    }
+
+    @Test
     public void orTest() {
         boolean x = false;
         boolean y = false;
@@ -78,11 +95,30 @@ public class LogicalTest {
     }
 
     @Test
+    public void orTest5() {
+        boolean x = false;
+        boolean y = true;
+        boolean z = true;
+        assertTrue(Logical.or(x,y,z));
+    }
+
+    @Test
+    public void orTest6() {
+        boolean x = false;
+        boolean y = false;
+        boolean z = false;
+        boolean zz = false;
+        assertFalse(Logical.or(x,y,z,zz));
+    }
+
+    @Test
     public void impliesTest() {
         boolean x = true;
         boolean y = false;
         assertFalse(Logical.implies(x,y));
     }
+
+
 
     @Test
     public void impliesTest2() {
