@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * JUnit test class for {@link Variable.class}.
+ */
 public class VariableTest {
 	
 	@Test

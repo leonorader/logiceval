@@ -1,5 +1,8 @@
 package representation;
 
+/**
+ * Class representing a logical variable.
+ */
 public class Variable extends Expression{
 	
 	private String name;

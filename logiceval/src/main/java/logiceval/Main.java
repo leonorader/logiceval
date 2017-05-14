@@ -4,6 +4,9 @@ import representation.Expression;
 import representation.Operator;
 import representation.Variable;
 
+/**
+ * Main class for running the application.
+ */
 public class Main {
 
 	public static void main(String[] args) {

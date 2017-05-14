@@ -2,8 +2,6 @@ package validation;
 
 /**
  * Class for validating expressions.
- * <p>
- * Created by Grekton on 2017.04.26..
  */
 public class ExpressionValidator {
 

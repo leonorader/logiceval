@@ -2,8 +2,6 @@ package representation;
 
 /**
  * A class containing the methods for logical operators.
- * <p>
- * Created by Grekton on 2017.05.07..
  */
 public class Logical {
 

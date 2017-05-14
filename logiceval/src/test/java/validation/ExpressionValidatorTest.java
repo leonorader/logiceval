@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * Created by Grekton on 2017.04.26..
+ * JUnit test class for {@link ExpressionValidator.class}.
  */
 public class ExpressionValidatorTest {
 

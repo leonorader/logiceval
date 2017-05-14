@@ -1,13 +1,8 @@
 package representation;
 
 /**
- * Class representing a logical expression
- * 
- * @author leah
- * @contributors 
- *
+ * Class representing a logical expression.
  */
-
 public class Expression {
 	
 	private Expression leftExpression;

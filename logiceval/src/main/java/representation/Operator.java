@@ -1,5 +1,8 @@
 package representation;
 
+/**
+ * Class representing the available logical operators.
+ */
 public enum Operator {
 	
 	IMPLIES,
