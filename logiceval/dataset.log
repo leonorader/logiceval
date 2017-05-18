@@ -1,0 +1,28 @@
+a or b
+true,false
+a or b
+0,0
+(dog or cat) and hedgehog
+false,true,false
+a and b
+1,0
+a and b
+true
+(appla & pineapple) | (strawberry > blueberry)
+true,1,0,1
+not (jam and milk)
+true,false
+((a or b or c) or (not(d and e)))
+true,0,false,1,false
+((one or two or ) or (not(three and four)))
+0,1,1,0
+! apple
+true
+( a | b ) & (c  > d )
+true,false,false,true
+! (a or ( b > c))
+1,0,0
+a and b (c or d > (e and f))
+false,false,true,false,false,false
+dog and cat or (a or b > (whale and shark)) or not platypus
+false,false,true,true,false,true,false
