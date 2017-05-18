@@ -6,14 +6,10 @@ import java.util.Stack;
 import java.util.LinkedList;
 
 /**
- * A class parsing given String expression to fit our Expression model.
+ * A class for parsing given String expression to fit our Expression model.
  */
 public class ExpressionParser {
 	
-	private final String ERROR = "Incorrect given String expression!";
-	
-	private Expression parsedExpression;
-	private String expression;
 	private LinkedList<String> tokens;
 	private Stack<String> stackForTokens;
 	private LinkedList<LinkedList<Expression>> listsForExpressions;
@@ -21,11 +17,8 @@ public class ExpressionParser {
 	/**
 	*Constructor to initialize class fields.
 	*
-	*@param expr The String expression that need to be parsed to our Expression model.
 	*/
-	public ExpressionParser(String expr) {
-		parsedExpression = null;
-		expression = expr;
+	public ExpressionParser() {
 		tokens = new LinkedList<>();
 		stackForTokens = new Stack<>();
 		listsForExpressions = new LinkedList<>();
@@ -35,16 +28,17 @@ public class ExpressionParser {
 	/**
 	*Checks if the given expression is valid, then tokenizes the expression and parses them to our Expression model.
 	*
+	*@param expr The String expression that need to be parsed to our Expression model.
 	*@return Returns Expression if the given expression is correct, null if it is not correct.
 	*/
-	public Expression parse(){
-		if(!new ExpressionValidator().isValid(expression)){
-			System.err.println(ERROR);
+	public Expression parse(String expr){
+		if(!new ExpressionValidator().isValid(expr)){
 			return null;
 		}
-		tokenize();
-		parsedExpression = parsingTokens();
-		return parsedExpression;
+		tokenize(expr);
+		Expression expression = parsingTokens();
+		clean();
+		return expression;
 	}
 	
 	/**
@@ -140,36 +134,6 @@ public class ExpressionParser {
 	}
 	
 	/**
-	*Checks the token is a variable or not.
-	*
-	*@param token The String token that needs to be checked.
-	*@return Return true if the token is a variable, false if it is not.
-	*/
-	private boolean isVariable(String token) {
-		return isTrue(token) || isFalse(token);
-	}
-	
-	/**
-	*Checks the token is a true variable or not.
-	*
-	*@param token The String token that needs to be checked.
-	*@return Return true if the token is a true variable, false if it is not.
-	*/
-	private boolean isTrue(String token) {
-		return token.equals("0") || token.toUpperCase().equals("FALSE");
-	}
-	
-	/**
-	*Checks the token is a false variable or not.
-	*
-	*@param token The String token that needs to be checked.
-	*@return Return true if the token is a false variable, false if it is not.
-	*/
-	private boolean isFalse(String token) {
-		return token.equals("1") || token.toUpperCase().equals("TRUE");
-	}
-	
-	/**
 	*Creates an Expression by the given parameters.
 	*
 	*@param token The String token that defines what kind of expression needs to be created.
@@ -228,21 +192,22 @@ public class ExpressionParser {
 	*@return Return true if the expression is valid, false if it is invalid.
 	*/
 	private Expression parsingTokens() {
+		String token = "";
 		String topToken = "";
 		LinkedList<Expression> lastList = listsForExpressions.getLast();
-		for(String token : tokens) {
+		while(tokens.size()!=0){
+			token = tokens.remove();
 			if(token.equals("(")){
 				if(lastList.size() != 0 && stackForTokens.empty()){
-					System.err.println(ERROR);
 					return null;
 				}
 				listsForExpressions.add(new LinkedList<>());
 				lastList = listsForExpressions.getLast();
 				stackForTokens.push(token);
+				topToken = stackForTokens.peek();
 				continue;
 			}else if(token.equals(")")){
 				if(lastList.size()!=1 || !stackForTokens.peek().equals("(")) {
-					System.err.println(ERROR);
 					return null;
 				}
 				Expression expr = lastList.remove();
@@ -255,36 +220,41 @@ public class ExpressionParser {
 				}
 				topToken = stackForTokens.peek();
 			}else if(isBinaryOperator(token)) {
-				if(lastList.size()<1){
-					System.err.println(ERROR);
+				if(lastList.size()<1 || tokens.size()==0){
 					return null;
 				}
 				stackForTokens.push(token);
 				continue;
 			}else if(isUnaryOperator(token)) {
+				if(tokens.size()==0){
+					return null;
+				}
 				stackForTokens.push(token);
-			}else if(isVariable(token)) {
+			}else{
 				creatingExpression(token, lastList);
 				if(stackForTokens.empty()) {
 					continue;
 				}
 				topToken = stackForTokens.peek();
-			}else{
-				System.err.println(ERROR);
-				return null;
 			}
-			if(!topToken.equals("") && isBinaryOperator(topToken)) {
+			if(!topToken.equals("") && isBinaryOperator(topToken) && !isUnaryOperator(token)) {
 				creatingExpression(topToken, lastList);
 				continue;
 			}
 			if(!topToken.equals("") && isUnaryOperator(topToken)) {
-				if(lastList.size() != 1) {
-					System.err.println(ERROR);
+				if(lastList.size() < 1) {
 					return null;
 				}
 				creatingExpression(topToken, lastList);
-				continue;
 			}
+		}
+		while(lastList.size()!=1){
+			if(stackForTokens.empty()) {
+				return null;
+			}
+			token = stackForTokens.peek();
+			creatingExpression(token, lastList);
+			
 		}
 		return lastList.remove();
 	}
@@ -305,15 +275,16 @@ public class ExpressionParser {
 	
 	/**
 	*Tokenizes the given String expression.
+	*
+	*@param expr The String expression that need to be tokenized.
 	*/
-	private void tokenize() {
+	private void tokenize(String expr) {
 		String token = "";
-		for (char c : expression.toCharArray()){
+		for (char c : expr.toCharArray()){
 			if(c == ' '){
 				if(addTokenIfNotEmpty(token)){
 					token = "";
 				}
-				continue;
 			}else if(c == '(' || c == ')'){
 				if(addTokenIfNotEmpty(token)){
 					token = "";
@@ -327,32 +298,13 @@ public class ExpressionParser {
 	}
 	
 	/**
-	*Sets class expression by the given expression and reinitalizes others class fields.
-	*
-	*@param expr The new expression that need to be set.
-	*/
-	public void setExpression(String expr) {
-		this.expression = expr;
-		clean();
-	}
-	
-	/**
 	*Reinitalizes each fields except the expression class fied.
 	*/
-	public void clean() {
-		parsedExpression = null;
+	private void clean() {
 		tokens = new LinkedList<>();
 		stackForTokens = new Stack<>();
 		listsForExpressions = new LinkedList<>();
 		listsForExpressions.add(new LinkedList<>());
-	}
-	
-	@Override
-	public String toString() {
-		if(parsedExpression != null) {
-			return parsedExpression.toString();
-		}
-		return "";
 	}
 	
 }
