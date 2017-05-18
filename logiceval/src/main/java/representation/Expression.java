@@ -1,8 +1,13 @@
 package representation;
 
 /**
- * Class representing a logical expression.
+ * Class representing a logical expression
+ * 
+ * @author leah
+ * @contributors 
+ *
  */
+
 public class Expression {
 	
 	private Expression leftExpression;
@@ -31,6 +36,19 @@ public class Expression {
 		return (leftExpression == null && operator == null);
 	}
 
+	public Expression getLeftExpression(){
+		return leftExpression;
+	}
+	
+	public Expression getRightExpression() {
+		return rightExpression;
+	}
+	
+	public Operator getOperator() {
+		return operator;
+	}
+	
+	
 	@Override
 	public String toString() {
 		String s = null;
