@@ -5,8 +5,6 @@ import java.util.List;
 
 /**
  * Enum class for the accepted operators
- * 
- * @author leah
  *
  */
 

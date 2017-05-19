@@ -7,8 +7,6 @@ import java.util.Set;
 
 /**
  * Class representing a logical expression
- * 
- * @author leah
  *
  */
 
@@ -178,5 +176,38 @@ public class Expression {
 		s.append(")");
 		return s.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((operators == null) ? 0 : operators.hashCode());
+		result = prime * result + ((subExpressions == null) ? 0 : subExpressions.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Expression other = (Expression) obj;
+		if (operators == null) {
+			if (other.operators != null)
+				return false;
+		} else if (!operators.equals(other.operators))
+			return false;
+		if (subExpressions == null) {
+			if (other.subExpressions != null)
+				return false;
+		} else if (!subExpressions.equals(other.subExpressions))
+			return false;
+		return true;
+	}
+	
+	
 	
 }

@@ -2,8 +2,6 @@ package representation;
 
 /**
  * A class containing the methods for logical operators.
- * <p>
- * Created by Grekton on 2017.05.07..
  */
 public class Logical {
 
@@ -41,6 +39,24 @@ public class Logical {
             if(x) return true;
         }
         return false;
+    }
+    
+    /**
+     * Method for the <i>and</i> logical operator.
+     *
+     * @return true if both of the arguments are true and false otherwise.
+     */
+    public static boolean and(boolean x, boolean y) {
+    	return x && y;
+    }
+
+    /**
+     * Method for the <i>or</i> logical operator.
+     *
+     * @return false if both of the arguments are false and true otherwise.
+     */
+    public static boolean or(boolean x, boolean y) {
+    	return x || y;
     }
 
     /**

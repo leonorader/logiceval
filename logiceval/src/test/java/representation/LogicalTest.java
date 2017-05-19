@@ -4,9 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * Created by Grekton on 2017.05.07..
- */
 public class LogicalTest {
 
     @Test
