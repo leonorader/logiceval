@@ -306,5 +306,4 @@ public class ExpressionParser {
 		listsForExpressions = new LinkedList<>();
 		listsForExpressions.add(new LinkedList<>());
 	}
-	
 }

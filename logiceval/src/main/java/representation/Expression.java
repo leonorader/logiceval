@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
+<<<<<<< HEAD
  * Class representing a logical expression
  *
+=======
+ * Class representing a logical expression.
+>>>>>>> origin/master
  */
-
 public class Expression {
 	
 	protected List<Expression> subExpressions;

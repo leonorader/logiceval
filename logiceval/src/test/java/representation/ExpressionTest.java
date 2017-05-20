@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+/**
+ * JUnit test class for {@link Expression.class}.
+ */
 public class ExpressionTest {
 	
 	@Test

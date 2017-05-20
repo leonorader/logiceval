@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Enum class for the accepted operators
- *
+ * Class representing the available logical operators.
  */
 
 public enum Operator {

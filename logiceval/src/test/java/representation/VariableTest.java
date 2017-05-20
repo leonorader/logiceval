@@ -8,6 +8,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+/**
+ * JUnit test class for {@link Variable.class}.
+ */
 public class VariableTest {
 	
 	@Test
