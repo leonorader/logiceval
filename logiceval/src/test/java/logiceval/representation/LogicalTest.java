@@ -1,12 +1,12 @@
-package representation;
+package logiceval.representation;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * JUnit test class for {@link Logical.class}.
- */
+import logiceval.representation.Logical;
+
+
 public class LogicalTest {
 
     @Test

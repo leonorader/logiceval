@@ -1,4 +1,4 @@
-package util;
+package logiceval.util;
 
 import static org.junit.Assert.assertTrue;
 
@@ -9,9 +9,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import representation.Expression;
-import representation.Operator;
-import representation.Variable;
+import logiceval.representation.Expression;
+import logiceval.representation.Operator;
+import logiceval.representation.Variable;
+import logiceval.util.InputReader;
 
 public class InputReaderTest {
 

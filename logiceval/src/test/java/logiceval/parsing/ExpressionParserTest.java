@@ -1,13 +1,12 @@
-package parsing;
+package logiceval.parsing;
 
 import static org.junit.Assert.*;
-import representation.Expression;
 
 import org.junit.Test;
 
-/**
- * JUnit test class for {@link ExpressionParser.class}.
- */
+import logiceval.parsing.ExpressionParser;
+import logiceval.representation.Expression;
+
 public class ExpressionParserTest {
 
     @Test

@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 /**
  * A class containing the methods for logical operators.
@@ -12,6 +12,7 @@ public class Logical {
      * Method for the <i>negation</i> logical operator.
      *
      * @return false if x is true and true if x is false.
+     * @param x input parameter
      */
     public static boolean not(boolean x) {
         return !x;
@@ -21,6 +22,7 @@ public class Logical {
      * Method for the <i>and</i> logical operator.
      *
      * @return true if all of the arguments are true and false otherwise.
+     * @param args input parameters
      */
     public static boolean and(boolean... args) {
         for (boolean x : args) {
@@ -33,6 +35,7 @@ public class Logical {
      * Method for the <i>or</i> logical operator.
      *
      * @return false if all of the arguments are false and true otherwise.
+     * @param args input parameters
      */
     public static boolean or(boolean... args) {
         for (boolean x : args) {
@@ -45,6 +48,8 @@ public class Logical {
      * Method for the <i>and</i> logical operator.
      *
      * @return true if both of the arguments are true and false otherwise.
+     * @param x first input parameter
+     * @param y second input parameter
      */
     public static boolean and(boolean x, boolean y) {
     	return x && y;
@@ -54,6 +59,8 @@ public class Logical {
      * Method for the <i>or</i> logical operator.
      *
      * @return false if both of the arguments are false and true otherwise.
+     * @param x first input parameter
+     * @param y second input parameter
      */
     public static boolean or(boolean x, boolean y) {
     	return x || y;
@@ -63,6 +70,8 @@ public class Logical {
      * Method for the <i>implies</i> logical operator.
      *
      * @return false if x is true and y is false, and true otherwise.
+     * @param x first input parameter
+     * @param y second input parameter
      */
     public static boolean implies(boolean x, boolean y) {
         return !(x && !y);

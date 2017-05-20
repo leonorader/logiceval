@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,9 +8,10 @@ import java.util.Set;
 
 import org.junit.Test;
 
-/**
- * JUnit test class for {@link Variable.class}.
- */
+import logiceval.representation.Expression;
+import logiceval.representation.Variable;
+
+
 public class VariableTest {
 	
 	@Test

@@ -1,8 +1,10 @@
-package parsing;
+package logiceval.parsing;
 
-import representation.*;
-import validation.*;
 import java.util.Stack;
+
+import logiceval.representation.*;
+import logiceval.validation.*;
+
 import java.util.LinkedList;
 
 /**

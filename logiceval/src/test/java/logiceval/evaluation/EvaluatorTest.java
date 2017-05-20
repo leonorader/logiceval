@@ -1,4 +1,4 @@
-package evaluation;
+package logiceval.evaluation;
 
 import static org.junit.Assert.*;
 
@@ -7,9 +7,10 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import representation.Expression;
-import representation.Operator;
-import representation.Variable;
+import logiceval.evaluation.ExpressionEvaluator;
+import logiceval.representation.Expression;
+import logiceval.representation.Operator;
+import logiceval.representation.Variable;
 
 public class EvaluatorTest {
 	

@@ -1,4 +1,4 @@
-package validation;
+package logiceval.validation;
 
 /**
  * Class for validating expressions.

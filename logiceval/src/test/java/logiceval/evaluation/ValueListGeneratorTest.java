@@ -1,4 +1,4 @@
-package evaluation;
+package logiceval.evaluation;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import logiceval.evaluation.ValueListGenerator;
+import logiceval.evaluation.Values;
 
 public class ValueListGeneratorTest {
 

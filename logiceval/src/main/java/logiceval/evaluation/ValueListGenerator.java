@@ -1,10 +1,10 @@
-package evaluation;
+package logiceval.evaluation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import representation.Variable;
+import logiceval.representation.Variable;
 
 public final class ValueListGenerator {
 
@@ -16,8 +16,8 @@ public final class ValueListGenerator {
     /**
      * Generates all the possible test case for an expression.
      * 
-     * @param variables
-     * @return List<HashMap<Variable, Boolean>>
+     * @param variables  list of variables in an expression
+     * @return all the possible values that can occur
      */
 	public static List<HashMap<Variable, Boolean>> generateValues(List<Variable> variables) {
 		List<HashMap<Variable, Boolean>> generatedValues = new ArrayList<HashMap<Variable, Boolean>>();
@@ -38,8 +38,8 @@ public final class ValueListGenerator {
 	/**
 	 * This is the low level generator for a given size.
 	 * 
-	 * @param size
-	 * @return List<Values>
+	 * @param size number of the variables in an expression
+	 * @return a list of values
 	 */
     public static List<Values> generateValueList(int size) {
     	

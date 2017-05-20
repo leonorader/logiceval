@@ -12,12 +12,12 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import evaluation.ExpressionEvaluator;
-import parsing.ExpressionParser;
-import representation.Expression;
-import representation.Variable;
-import util.InputReader;
-import validation.ExpressionValidator;
+import logiceval.evaluation.ExpressionEvaluator;
+import logiceval.parsing.ExpressionParser;
+import logiceval.representation.Expression;
+import logiceval.representation.Variable;
+import logiceval.util.InputReader;
+import logiceval.validation.ExpressionValidator;
 
 /**
  * Console mode.

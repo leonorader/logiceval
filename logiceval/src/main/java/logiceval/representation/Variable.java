@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +17,7 @@ public class Variable extends Expression {
 	 * Constructor of a variable. 
 	 * (Name becomes upper case)
 	 * 
-	 * @param String name
+	 * @param name name of the variable
 	 */
 	public Variable(String name) {
 		this.name = name.toUpperCase();

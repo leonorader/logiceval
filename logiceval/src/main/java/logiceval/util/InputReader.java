@@ -1,4 +1,4 @@
-package util;
+package logiceval.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import parsing.ExpressionParser;
-import representation.Expression;
-import representation.Variable;
+import logiceval.parsing.ExpressionParser;
+import logiceval.representation.Expression;
+import logiceval.representation.Variable;
 
 /**
  * Util class to help with the file reading.
@@ -20,9 +20,9 @@ public class InputReader {
 
 	/**
 	 * Reads a file containing an expression every line.
-	 * @param path 
-	 * @return List<Expression>
-	 * @throws IOException
+	 * @param path string path to the file
+	 * @return a list of expressions
+	 * @throws IOException when the path is not valid
 	 */
 	public static List<Expression> readExpressions(String path) throws IOException {
 		List<Expression> expressions = new ArrayList<Expression>();
@@ -48,9 +48,9 @@ public class InputReader {
 
 	/**
 	 * Reads a file containing variable names and its values in compressed form every line.
-	 * @param path 
-	 * @return List<HashMap<Variable, Boolean>>
-	 * @throws IOException
+	 * @param path string path to the file
+	 * @return a list of expressions
+	 * @throws IOException when the path is not valid
 	 */
 	public static List<HashMap<Variable, Boolean>> readVariables(String path) throws IOException {
 		List<HashMap<Variable, Boolean>> data = new ArrayList<HashMap<Variable, Boolean>>();
@@ -68,8 +68,8 @@ public class InputReader {
 
 	/**
 	 * Parses the data given in a compressed form.
-	 * @param data
-	 * @return HashMap<Variable, Boolean>
+	 * @param data compressed string to parse containing variable values
+	 * @return HashMap<Variable, Boolean> parsed map of variables and values
 	 */
 	private static HashMap<Variable, Boolean> parseData(String data) {
 		HashMap<Variable, Boolean> map = new HashMap<Variable, Boolean>();

@@ -1,12 +1,11 @@
-package validation;
+package logiceval.validation;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * JUnit test class for {@link ExpressionValidator.class}.
- */
+import logiceval.validation.ExpressionValidator;
+
 
 public class ExpressionValidatorTest {
 

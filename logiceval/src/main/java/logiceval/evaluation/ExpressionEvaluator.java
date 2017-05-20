@@ -1,4 +1,4 @@
-package evaluation;
+package logiceval.evaluation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import representation.Expression;
-import representation.Logical;
-import representation.Operator;
-import representation.Variable;
+import logiceval.representation.Expression;
+import logiceval.representation.Logical;
+import logiceval.representation.Operator;
+import logiceval.representation.Variable;
 
 /**
  * Collection of evaluation methods.
@@ -25,9 +25,9 @@ public final class ExpressionEvaluator {
     /**
      * Evaluates an expression with the given values.
      * 
-     * @param expression
-     * @param values
-     * @return boolean
+     * @param expression expression to be evaluated
+     * @param values     values to evaluate
+     * @return the result of the evaluation with the given values
      */
     public static boolean evaluate(Expression expression, Map<Variable, Boolean> values) {
     	boolean result = false;
@@ -64,8 +64,8 @@ public final class ExpressionEvaluator {
     /**
      * Decides if the expression is a tautology.
      * 
-     * @param expression
-     * @return Boolean
+     * @param expression  input expression
+     * @return true if the expression is a tautology
      */
     public static Boolean isTautology(Expression expression) {
     	
@@ -78,8 +78,8 @@ public final class ExpressionEvaluator {
     /**
      * Decides if the expression is satisfiable.
      * 
-     * @param expression
-     * @return Boolean
+     * @param expression input expression
+     * @return true if the expression is satisfiable
      */
     public static Boolean isSatisfiable(Expression expression) {
     	
@@ -92,8 +92,8 @@ public final class ExpressionEvaluator {
     /**
      * Decides if the expression is a contradiction.
      * 
-     * @param expression
-     * @return Boolean
+     * @param expression input expression
+     * @return true if the expression is satisfiable
      */
     public static Boolean isContradiction(Expression expression) {
     	
@@ -107,8 +107,8 @@ public final class ExpressionEvaluator {
      * Evaluates an Expression with all the possible ways.
      * Returns a list of the results.
      * 
-     * @param expression
-     * @return List<Boolean>
+     * @param expression input expression
+     * @return a list of boolean values representing the result of each evaluation
      */
     public static List<Boolean> evaluate(Expression expression) {
     	List<Variable> variables = new ArrayList<Variable>(expression.getVariables());
@@ -126,8 +126,8 @@ public final class ExpressionEvaluator {
     /**
      * Returns the generated possible test cases for an expression.
      * 
-     * @param expression
-     * @return List<HashMap<Variable, Boolean>>
+     * @param expression input expression
+     * @return the generated sets of values
      */
     public static List<HashMap<Variable, Boolean>> getData(Expression expression) {
     	List<Variable> variables = new ArrayList<Variable>(expression.getVariables());

@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,12 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
-<<<<<<< HEAD
  * Class representing a logical expression
  *
-=======
- * Class representing a logical expression.
->>>>>>> origin/master
  */
 public class Expression {
 	
@@ -29,9 +25,9 @@ public class Expression {
 	/**
 	 * Constructor of an expression that has a binary operator between its left and right subexpressions
 	 * 
-	 * @param Expression leftExpression
-	 * @param Operator operator
-	 * @param Expression rightExpression
+	 * @param leftExpression expression on the left hand side
+	 * @param operator binary operator between the two subexpressions
+	 * @param rightExpression expression on the right hand side
 	 */	
 	public Expression(Expression leftExpression, Operator operator, Expression rightExpression) {
 		subExpressions = new ArrayList<Expression>(2);
@@ -44,8 +40,8 @@ public class Expression {
 	/**
 	 * Constructor of an expression that has a unary operator 
 	 * 
-	 * @param Operator operator
-	 * @param Expression rightExpression
+	 * @param operator unary operator before the one and only subexpression
+	 * @param rightExpression expression on the right hand side
 	 */
 	public Expression(Operator operator, Expression rightExpression) {
 		subExpressions = new ArrayList<Expression>(1);
@@ -57,7 +53,7 @@ public class Expression {
 	/**
 	 * Constructor of an expression that is only a variable 
 	 * 
-	 * @param Variable variable
+	 * @param variable name of the variable
 	 */
 	public Expression(Variable variable) {
 		subExpressions = new ArrayList<Expression>(1);
@@ -69,8 +65,8 @@ public class Expression {
 	 * Constructor helper method. This way you can add more subexpressions.
 	 * Use only with the no-parameter constructor.
 	 * 
-	 * @param Expression subExpression
-	 * @return Expression this
+	 * @param subExpression a subexpression to be added to the expression
+	 * @return this 
 	 */
 	public Expression addSubExpression(Expression subExpression) {
 		subExpressions.add(subExpression);
@@ -81,8 +77,8 @@ public class Expression {
 	 * Constructor helper method. This way you can add more operators.
 	 * Use only with the no-parameter constructor.
 	 * 
-	 * @param Expression operator
-	 * @return Expression this
+	 * @param operator an operator to be added to the expression
+	 * @return this
 	 */
 	public Expression addOperator(Operator operator) {
 		operators.add(operator);
@@ -92,7 +88,7 @@ public class Expression {
 	/**
 	 * To decide if the expression consists only of a variable.
 	 * 
-	 * @return boolean 
+	 * @return if the expression consists of a variable 
 	 */
 	public boolean consistsOfAVariable() {
 		return (operators == null && subExpressions.size() == 1 && subExpressions.get(0).isVariable());
@@ -100,7 +96,7 @@ public class Expression {
 	
 	/**
 	 * Tells if an expression has only one operator and at a maximum 2 subexpressions.
-	 * @return
+	 * @return if the expression is a simple expression
 	 */
 	public boolean isSimpleExpression() {
 		return operators.size() == 1 && subExpressions.size() > 0 && subExpressions.size() < 3;
@@ -109,7 +105,7 @@ public class Expression {
 	/**
 	 * An expression is never a variable.
 	 * 
-	 * @return boolean 
+	 * @return if the expression is a variable
 	 */
 	public boolean isVariable() {
 		return false;
@@ -118,7 +114,7 @@ public class Expression {
 	/**
 	 * Collects all the variables of the expression.
 	 * 
-	 * @return Set<Variables>
+	 * @return a set of variables of the expression
 	 */
 	public Set<Variable> getVariables() {
 		Set<Variable> variables = new HashSet<Variable>();
@@ -136,7 +132,7 @@ public class Expression {
 	/**
 	 * Returns the subexpressions of the expression.
 	 * 
-	 * @return List<Expression>
+	 * @return a list of expressions that are the subexpression of the current expression
 	 */
 	public List<Expression> getSubExpressions() {
 		return subExpressions;
@@ -145,7 +141,7 @@ public class Expression {
 	/**
 	 * Returns the operators of the expression.
 	 * 
-	 * @return List<Operator>
+	 * @return a list of operators that are the operators of the current operators
 	 */
 	public List<Operator> getOperators() {
 		return operators;

@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 import static org.junit.Assert.*;
 
@@ -7,9 +7,10 @@ import java.util.Set;
 
 import org.junit.Test;
 
-/**
- * JUnit test class for {@link Expression.class}.
- */
+import logiceval.representation.Expression;
+import logiceval.representation.Operator;
+import logiceval.representation.Variable;
+
 public class ExpressionTest {
 	
 	@Test

@@ -1,4 +1,4 @@
-package representation;
+package logiceval.representation;
 
 import java.util.ArrayList;
 import java.util.List;

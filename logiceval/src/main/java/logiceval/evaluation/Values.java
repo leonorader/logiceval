@@ -1,4 +1,4 @@
-package evaluation;
+package logiceval.evaluation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class Values {
 	
 	/**
 	 * Adds a boolean value to the container.
-	 * @param value
+	 * @param value boolean value to be added to the container
 	 */
 	public void add(Boolean value) {
 		if(size < capacity) {
@@ -31,7 +31,7 @@ public class Values {
 	
 	/**
 	 * Return the collected boolean values.
-	 * @return List<Boolean>
+	 * @return a list of Boolean values that are in the container
 	 */
 	public List<Boolean> getValues() {
 		return values;
