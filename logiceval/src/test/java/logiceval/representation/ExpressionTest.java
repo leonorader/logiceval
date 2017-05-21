@@ -13,18 +13,22 @@ import logiceval.representation.Variable;
 
 public class ExpressionTest {
 	
+	private static final String firstVariableName = "A";
+	private static final String secondVariableName = "B";
+	private static final String thirdVariableName = "C";
+	
 	@Test
 	public void expressionConstructorTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(a, Operator.OR, b);
 		assertEquals(expression.toString(), "( A OR B )");
     }
 	
 	@Test
 	public void complexConstructorTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression expression = new Expression(Operator.NOT, e1);
 		assertEquals(expression.toString(), "( NOT ( A OR B ) )");
@@ -32,8 +36,8 @@ public class ExpressionTest {
 	
 	@Test
 	public void veryComplexExpressionConstructorTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression e2 = new Expression(a, Operator.AND, b);
 		Expression expression = new Expression(e1, Operator.IMPLIES, e2);
@@ -42,16 +46,16 @@ public class ExpressionTest {
 
 	@Test
 	public void expressionIsNotVariableTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(a, Operator.OR, b);
 		assertFalse(expression.isVariable());
     }
 	
 	@Test
 	public void getVariablesOfComplexExpressionTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression expression = new Expression(Operator.NOT, e1);
 		Set<Variable> set = expression.getVariables();
@@ -63,8 +67,8 @@ public class ExpressionTest {
 	
 	@Test
 	public void getVariablesOfVeryComplexExpressionTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression e2 = new Expression(a, Operator.AND, b);
 		Expression expression = new Expression(e1, Operator.IMPLIES, e2);
@@ -77,9 +81,9 @@ public class ExpressionTest {
 	
 	@Test
 	public void longExpressionTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
-		Variable c = new Variable("C");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
+		Variable c = new Variable(thirdVariableName);
 		Variable d = new Variable("D");
 		Variable e = new Variable("E");
 		Expression expression = new Expression();
@@ -98,9 +102,9 @@ public class ExpressionTest {
 	
 	@Test
 	public void longAndComplexExpressionTest() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
-		Variable c = new Variable("C");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
+		Variable c = new Variable(thirdVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression e2 = new Expression(a, Operator.OR, c);
 		Expression expression = new Expression();

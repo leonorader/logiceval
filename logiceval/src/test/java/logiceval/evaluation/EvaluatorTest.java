@@ -14,9 +14,12 @@ import logiceval.representation.Variable;
 
 public class EvaluatorTest {
 	
+	private static final String firstVariableName = "A";
+	private static final String secondVariableName = "B";
+	
 	@Test 
 	public void evaluateVariable() {
-		Variable b = new Variable("B");
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(b);
 		Map<Variable, Boolean> values = new HashMap<Variable, Boolean>();
 		values.put(b, true);
@@ -26,7 +29,7 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateVerySimpleNotExpression() {
-		Variable a = new Variable("A");
+		Variable a = new Variable(firstVariableName);
 		Expression expression = new Expression(Operator.NOT, a);
 		Map<Variable, Boolean> values = new HashMap<Variable, Boolean>();
 		values.put(a, true);
@@ -35,8 +38,8 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateSimpleNotExpression() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression expression = new Expression(Operator.NOT, e1);
 		Map<Variable, Boolean> values = new HashMap<Variable, Boolean>();
@@ -47,8 +50,8 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateVerySimpleBinaryExpression() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Map<Variable, Boolean> values = new HashMap<Variable, Boolean>();
 		values.put(a, true);
 		values.put(b, true);
@@ -60,8 +63,8 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateLongAndExpression() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Variable c = new Variable("C");
 		Map<Variable, Boolean> values = new HashMap<Variable, Boolean>();
 		values.put(a, true);
@@ -76,15 +79,15 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateTautology() {
-		Variable b = new Variable("B");
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(b, Operator.OR, new Expression(Operator.NOT, b));
 		assertTrue(ExpressionEvaluator.isTautology(expression));		
 	}
 	
 	@Test 
 	public void evaluateMoreComplexTautology() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression();
 		Expression e1 = new Expression(a, Operator.AND, b);
 		Expression e2 = new Expression(Operator.NOT, a);
@@ -97,15 +100,15 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateContradiction() {
-		Variable b = new Variable("B");
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(b, Operator.AND, new Expression(Operator.NOT, b));
 		assertTrue(ExpressionEvaluator.isContradiction(expression));			
 	}
 			
 	@Test 
 	public void evaluateMoreComplexContradiction() {
-		Variable a = new Variable("A");
-		Variable b = new Variable("B");
+		Variable a = new Variable(firstVariableName);
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression();
 		Expression e1 = new Expression(a, Operator.OR, b);
 		Expression e2 = new Expression(Operator.NOT, a);
@@ -117,14 +120,14 @@ public class EvaluatorTest {
 	
 	@Test 
 	public void evaluateSatisfiableExpression() {
-		Variable b = new Variable("B");
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(b, Operator.OR, b);
 		assertTrue(ExpressionEvaluator.isSatisfiable(expression));			
 	}
 	
 	@Test 
 	public void evaluateNotSatisfiableExpression() {
-		Variable b = new Variable("B");
+		Variable b = new Variable(secondVariableName);
 		Expression expression = new Expression(b, Operator.AND, new Expression(Operator.NOT, b));
 		assertFalse(ExpressionEvaluator.isSatisfiable(expression));		
 	}
